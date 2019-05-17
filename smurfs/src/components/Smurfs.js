@@ -45,39 +45,75 @@ class Smurfs extends Component {
     console.log(this.props.smurfBio);
     return (
       <Fragment>
-        <h1>SMURF:</h1>
+        <div className="ui compact message">
+          <div className="content">
+            <p>
+              Want to become a part of the <strong>Smurf Family?</strong> add
+              yourself below.
+            </p>
+          </div>
+        </div>
         {this.props.smurfBio.map(smurf => (
-          <div>
-            <h3>Name: {smurf.name}</h3>
-            <h3>Age: {smurf.age}</h3>
-            <h3>Height: {smurf.height}</h3>
+          <div className="ui card container">
+            <div className="content">
+              <div className="header">{smurf.name}</div>
+            </div>
+            <div className="content">
+              <div className="description">
+                <p> Age: {smurf.age} </p>
+                <p>
+                  <p> Height:{smurf.height}</p>
+                </p>
+              </div>
+            </div>
           </div>
         ))}
-        <form onSubmit={this.addSmurf}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={this.state.smurfBio.name}
-            onChange={this.handleChanges}
-          />
-          <input
-            type="number"
-            name="age"
-            placeholder="Age"
-            value={this.state.smurfBio.age}
-            onChange={this.handleChanges}
-          />
-          <input
-            type="number"
-            name="height"
-            placeholder="Height"
-            value={this.state.smurfBio.height}
-            onChange={this.handleChanges}
-          />
-
-          <button onClick={this.addSmurf}>Add Smurf</button>
-        </form>
+        <div className="ui card container">
+          <div className="content">
+            <h1 class="header">Add a Smurf</h1>
+            <form class="ui form" onSubmit={this.addSmurf}>
+              <div className="field">
+                <label>Name</label>
+                <div class="ui input">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={this.state.smurfBio.name}
+                    onChange={this.handleChanges}
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <label>Age</label>
+                <div class="ui input">
+                  <input
+                    type="text"
+                    name="age"
+                    placeholder="Age"
+                    value={this.state.smurfBio.age}
+                    onChange={this.handleChanges}
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <label>Height</label>
+                <div class="ui input">
+                  <input
+                    type="text"
+                    name="height"
+                    placeholder="Height"
+                    value={this.state.smurfBio.height}
+                    onChange={this.handleChanges}
+                  />
+                </div>
+              </div>
+              <button className="ui positive button" onClick={this.addSmurf}>
+                Add Smurf
+              </button>
+            </form>
+          </div>
+        </div>
       </Fragment>
     );
   }
