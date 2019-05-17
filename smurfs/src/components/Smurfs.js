@@ -68,11 +68,11 @@ class Smurfs extends Component {
         ))}
         <div className="ui card container">
           <div className="content">
-            <h1 class="header">Add a Smurf</h1>
-            <form class="ui form" onSubmit={this.addSmurf}>
+            <h1 className="header">Add a Smurf</h1>
+            <form className="ui form" onSubmit={this.addSmurf}>
               <div className="field">
                 <label>Name</label>
-                <div class="ui input">
+                <div className="ui input">
                   <input
                     type="text"
                     name="name"
@@ -84,7 +84,7 @@ class Smurfs extends Component {
               </div>
               <div className="field">
                 <label>Age</label>
-                <div class="ui input">
+                <div className="ui input">
                   <input
                     type="text"
                     name="age"
@@ -96,7 +96,7 @@ class Smurfs extends Component {
               </div>
               <div className="field">
                 <label>Height</label>
-                <div class="ui input">
+                <div className="ui input">
                   <input
                     type="text"
                     name="height"
