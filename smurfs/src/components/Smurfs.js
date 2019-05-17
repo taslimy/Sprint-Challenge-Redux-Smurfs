@@ -61,9 +61,7 @@ class Smurfs extends Component {
             <div className="content">
               <div className="description">
                 <p> Age: {smurf.age} </p>
-                <p>
-                  <p> Height:{smurf.height}</p>
-                </p>
+                <p>Height: {smurf.height}</p>
               </div>
             </div>
           </div>
