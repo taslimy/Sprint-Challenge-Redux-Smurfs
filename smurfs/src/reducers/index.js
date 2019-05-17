@@ -4,7 +4,10 @@
 import {
   FETCH_SMURFS_START,
   FETCH_SMURFS_SUCCESS,
-  FETCH_SMURFS_FAILURE
+  FETCH_SMURFS_FAILURE,
+  ADD_SMURF,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_FAILURE
 } from "../actions";
 
 /*
@@ -21,12 +24,12 @@ import {
 
 const initialState = {
   smurfs: [],
-   fetchingSmurfs: false,
-   addingSmurf: false,
-   updatingSmurf: false,
-   deletingSmurf: false,
-   error: null
-}
+  fetchingSmurfs: false,
+  addingSmurf: false,
+  updatingSmurf: false,
+  deletingSmurf: false,
+  error: null
+};
 
 /*
   You'll only need one smurf reducer for this project.
@@ -37,38 +40,45 @@ const initialState = {
 */
 
 const reducer = (state = initialState, action) => {
-  console.log('reducer', action);
   switch (action.type) {
     case FETCH_SMURFS_START:
       return {
         ...state,
         error: null,
         fetchingSmurfs: true
-      }
-      case FETCH_SMURFS_SUCCESS: 
+      };
+    case FETCH_SMURFS_SUCCESS:
       return {
         ...state,
         smurfs: action.payload,
-        error:null,
+        error: null,
         fetchingSmurfs: false
-      }
-      case FETCH_SMURFS_FAILURE: 
+      };
+    case FETCH_SMURFS_FAILURE:
       return {
         ...state,
         fetchingSmurfs: false,
         error: action.payload.error
-      }
+      };
+    case ADD_SMURF:
+      return {
+        ...state,
+        addingSmurf: true
+      };
+    case ADD_SMURF_SUCCESS:
+      return {
+        ...state,
+        addingSmurf: false,
+        smurfs: action.payload
+      };
+    case ADD_SMURF_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }
-}
-
-
-
-
-
-
-
-
+};
 
 export default reducer;
